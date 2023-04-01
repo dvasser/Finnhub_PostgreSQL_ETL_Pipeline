@@ -1,32 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from FinnhubConnector import FinnhubConnector
 import psycopg2
 import datetime as dt
 
-
-# In[2]:
-
-
 #Import API Connector and establish the object variable
 connector = FinnhubConnector(api_key = 'YOUR_API_KEY')
-
-
-# In[3]:
-
 
 #Helper function to convert datetime objects to UNIX timestamps
 def convert_to_unix(datetime) -> int:
     formated_date = dt.datetime.strptime(datetime, "%Y-%m-%d %H:%M:%S")
     return int(dt.datetime.timestamp(formated_date))
-
-
-# In[4]:
-
 
 # How to use the postgres_load_candles function below:
 # 1. Specify a symbol from which you'd like to get candles. F.e 'MSFT'
@@ -83,15 +65,9 @@ def postgres_load_candles(symbol, frequency, start_date, end_date, title,
     cur.close()
     conn.close()
     print('Successfully loaded candles to PostgreSQL!')
-    
-
-
-# In[5]:
-
 
 # Examples:
 
 # postgres_load_candles('META', 'D', '2021-04-07', '2023-03-30', 'meta21_4_7to23_3_30daily')
 
 # postgres_load_candles('TSLA', '5', '2022-10-30', '2022-11-16', 'tsla5min')
-
