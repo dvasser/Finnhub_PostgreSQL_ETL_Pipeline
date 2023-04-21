@@ -250,8 +250,3 @@ class FinnhubConnector:
             asyncio.run(fetch_live())
         except KeyboardInterrupt:
             print('####### CONNECTION CLOSED #######')
-
-api_key = input('Paste your Finnhub API key: ')
-connector = FinnhubConnector(api_key = api_key)
-
-print(connector.get_current_quote('AAPL'))
