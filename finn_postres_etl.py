@@ -1,4 +1,4 @@
-from FinnhubConnector import FinnhubConnector
+from finnhub_connector import FinnhubConnector
 import psycopg2
 import datetime as dt
 
